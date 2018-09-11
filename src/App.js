@@ -41,20 +41,19 @@ class App extends Component {
   };
 
   setMaxWidth(event) {
-    this.setState({ maxWidth: parseInt(event.target.value) });
-    this.updateGrid();
+    this.setState(
+      { maxWidth: parseInt(event.target.value) },
+      this.updateGrid()
+    );
   }
   setGutter(event) {
-    this.setState({ gutter: parseInt(event.target.value) });
-    this.updateGrid();
+    this.setState({ gutter: parseInt(event.target.value) }, this.updateGrid());
   }
   setColumns(event) {
-    this.setState({ columns: parseInt(event.target.value) });
-    this.updateGrid();
+    this.setState({ columns: parseInt(event.target.value) }, this.updateGrid());
   }
   setMargin(event) {
-    this.setState({ margin: parseInt(event.target.value) });
-    this.updateGrid();
+    this.setState({ margin: parseInt(event.target.value) }, this.updateGrid());
   }
 
   render() {
@@ -88,6 +87,7 @@ class App extends Component {
           onChange={this.setMargin}
         />
 
+        <p>Columns: {this.state.columns}</p>
         <p>Column width: {this.state.columnWidth}</p>
         <p>
           Grid width:{' '}
