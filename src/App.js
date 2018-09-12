@@ -33,13 +33,20 @@ class App extends Component {
       colWidth * this.state.columns +
       (this.state.columns - 1) * this.state.gutter +
       2 * this.state.margin;
-
-    this.setState({
-      columnWidth: colWidth,
-      gridWidth: gridWidth
-    });
   };
 
+  getColumns = () => {
+    return this.state.columns;
+  };
+
+  getColumnWidth = () => {
+    return Math.floor(
+      (this.state.maxWidth -
+        ((this.state.columns - 1) * this.state.gutter +
+          2 * this.state.margin)) /
+        this.state.columns
+    );
+  };
   setMaxWidth(event) {
     this.setState(
       { maxWidth: parseInt(event.target.value, 10) },
@@ -108,8 +115,8 @@ class App extends Component {
           />
         </div>
 
-        <p>Columns: {this.state.columns}</p>
-        <p>Column width: {this.state.columnWidth}</p>
+        <p>Columns: {this.getColumns()}</p>
+        <p>Column width: {this.getColumnWidth()}</p>
         <p>
           Grid width:
           <span
