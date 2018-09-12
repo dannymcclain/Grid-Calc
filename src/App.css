@@ -2,6 +2,17 @@
   padding: 40px;
 }
 
+.grid-input {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 6px;
+  display: block;
+}
+
 .red {
   color: red;
 }

@@ -68,33 +68,45 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <input
-          type="number"
-          className="max-width"
-          value={this.state.maxWidth}
-          onChange={this.setMaxWidth}
-        />
+        <div className="grid-input">
+          <label>Max Width</label>
+          <input
+            type="number"
+            className="max-width"
+            value={this.state.maxWidth}
+            onChange={this.setMaxWidth}
+          />
+        </div>
 
-        <input
-          type="number"
-          className="gutter"
-          value={this.state.gutter}
-          onChange={this.setGutter}
-        />
+        <div className="grid-input">
+          <label>Gutter</label>
+          <input
+            type="number"
+            className="gutter"
+            value={this.state.gutter}
+            onChange={this.setGutter}
+          />
+        </div>
 
-        <input
-          type="number"
-          className="columns"
-          value={this.state.columns}
-          onChange={this.setColumns}
-        />
+        <div className="grid-input">
+          <label>Number of Columns</label>
+          <input
+            type="number"
+            className="columns"
+            value={this.state.columns}
+            onChange={this.setColumns}
+          />
+        </div>
 
-        <input
-          type="number"
-          className="margin"
-          value={this.state.margin}
-          onChange={this.setMargin}
-        />
+        <div className="grid-input">
+          <label>Outside Margin</label>
+          <input
+            type="number"
+            className="margin"
+            value={this.state.margin}
+            onChange={this.setMargin}
+          />
+        </div>
 
         <p>Columns: {this.state.columns}</p>
         <p>Column width: {this.state.columnWidth}</p>
