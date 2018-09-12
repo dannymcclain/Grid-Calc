@@ -13,6 +13,21 @@ label {
   display: block;
 }
 
-.red {
+.column,
+.gutter {
+  height: 40px;
+  float: left;
+  text-align: center;
+  font-size: 12px;
+}
+
+.column {
+  background: #ccc;
+}
+
+.gutter {
+  background: #f7f7f7;
+}
+.not-exact {
   color: red;
 }

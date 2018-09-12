@@ -17,28 +17,6 @@ class App extends Component {
     this.setMargin = this.setMargin.bind(this);
   }
 
-  componentDidMount() {
-    this.updateGrid();
-  }
-
-  updateGrid = () => {
-    const colWidth = Math.floor(
-      (this.state.maxWidth -
-        ((this.state.columns - 1) * this.state.gutter +
-          2 * this.state.margin)) /
-        this.state.columns
-    );
-
-    const gridWidth =
-      colWidth * this.state.columns +
-      (this.state.columns - 1) * this.state.gutter +
-      2 * this.state.margin;
-  };
-
-  getColumns = () => {
-    return this.state.columns;
-  };
-
   getColumnWidth = () => {
     return Math.floor(
       (this.state.maxWidth -
@@ -57,6 +35,25 @@ class App extends Component {
     );
   };
 
+  renderGrid = () => {
+    return [...Array(this.state.columns)].map((_, index, current) => {
+      console.log(index, current.length);
+      const isLastItem = current.length - 1 <= index;
+      const columnWidth = this.getColumnWidth();
+      return (
+        <React.Fragment>
+          <div className="column" style={{ width: columnWidth }}>
+            <p>{columnWidth}</p>
+          </div>
+          {!isLastItem && (
+            <div className="gutter" style={{ width: this.state.gutter }}>
+              <p>{this.state.gutter}</p>
+            </div>
+          )}
+        </React.Fragment>
+      );
+    });
+  };
   setMaxWidth(event) {
     this.setState({ maxWidth: parseInt(event.target.value, 10) });
   }
@@ -74,7 +71,7 @@ class App extends Component {
     return (
       <div className="container">
         <div className="grid-input">
-          <label>Max Width</label>
+          <label>Max Grid Width</label>
           <input
             type="number"
             className="max-width"
@@ -88,7 +85,7 @@ class App extends Component {
           <label>Gutter</label>
           <input
             type="number"
-            className="gutter"
+            className="gutter-input"
             value={this.state.gutter}
             onChange={this.setGutter}
             min={0}
@@ -116,19 +113,23 @@ class App extends Component {
             min={0}
           />
         </div>
-
-        <p>Columns: {this.getColumns()}</p>
-        <p>Column width: {this.getColumnWidth()}</p>
+        <p>
+          Column width:{' '}
+          <span className="column-width">{this.getColumnWidth()}</span>
+        </p>
         <p>
           Grid width:
           <span
             className={` grid-width ${
-              this.getGridWidth() !== this.state.maxWidth ? 'red' : ''
+              this.getGridWidth() !== this.state.maxWidth ? 'not-exact' : ''
             }`}
           >
             {this.getGridWidth()}
           </span>
         </p>
+        <div className="grid" style={{ width: this.getGridWidth() }}>
+          {this.renderGrid()}
+        </div>
       </div>
     );
   }
