@@ -42,23 +42,32 @@ class App extends Component {
 
   setMaxWidth(event) {
     this.setState(
-      { maxWidth: parseInt(event.target.value) },
+      { maxWidth: parseInt(event.target.value, 10) },
       this.updateGrid()
     );
   }
   setGutter(event) {
-    this.setState({ gutter: parseInt(event.target.value) }, this.updateGrid());
+    this.setState(
+      { gutter: parseInt(event.target.value, 10) },
+      this.updateGrid()
+    );
   }
   setColumns(event) {
-    this.setState({ columns: parseInt(event.target.value) }, this.updateGrid());
+    this.setState(
+      { columns: parseInt(event.target.value, 10) },
+      this.updateGrid()
+    );
   }
   setMargin(event) {
-    this.setState({ margin: parseInt(event.target.value) }, this.updateGrid());
+    this.setState(
+      { margin: parseInt(event.target.value, 10) },
+      this.updateGrid()
+    );
   }
 
   render() {
     return (
-      <div className="App">
+      <div className="container">
         <input
           type="number"
           className="max-width"
@@ -90,7 +99,7 @@ class App extends Component {
         <p>Columns: {this.state.columns}</p>
         <p>Column width: {this.state.columnWidth}</p>
         <p>
-          Grid width:{' '}
+          Grid width:
           <span
             className={` grid-width ${
               this.state.gridWidth !== this.state.maxWidth ? 'red' : ''
