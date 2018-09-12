@@ -47,29 +47,27 @@ class App extends Component {
         this.state.columns
     );
   };
-  setMaxWidth(event) {
-    this.setState(
-      { maxWidth: parseInt(event.target.value, 10) },
-      this.updateGrid()
+
+  getGridWidth = () => {
+    const colWidth = this.getColumnWidth();
+    return (
+      colWidth * this.state.columns +
+      (this.state.columns - 1) * this.state.gutter +
+      2 * this.state.margin
     );
+  };
+
+  setMaxWidth(event) {
+    this.setState({ maxWidth: parseInt(event.target.value, 10) });
   }
   setGutter(event) {
-    this.setState(
-      { gutter: parseInt(event.target.value, 10) },
-      this.updateGrid()
-    );
+    this.setState({ gutter: parseInt(event.target.value, 10) });
   }
   setColumns(event) {
-    this.setState(
-      { columns: parseInt(event.target.value, 10) },
-      this.updateGrid()
-    );
+    this.setState({ columns: parseInt(event.target.value, 10) });
   }
   setMargin(event) {
-    this.setState(
-      { margin: parseInt(event.target.value, 10) },
-      this.updateGrid()
-    );
+    this.setState({ margin: parseInt(event.target.value, 10) });
   }
 
   render() {
@@ -82,6 +80,7 @@ class App extends Component {
             className="max-width"
             value={this.state.maxWidth}
             onChange={this.setMaxWidth}
+            min={0}
           />
         </div>
 
@@ -92,6 +91,7 @@ class App extends Component {
             className="gutter"
             value={this.state.gutter}
             onChange={this.setGutter}
+            min={0}
           />
         </div>
 
@@ -102,6 +102,7 @@ class App extends Component {
             className="columns"
             value={this.state.columns}
             onChange={this.setColumns}
+            min={0}
           />
         </div>
 
@@ -112,6 +113,7 @@ class App extends Component {
             className="margin"
             value={this.state.margin}
             onChange={this.setMargin}
+            min={0}
           />
         </div>
 
@@ -121,10 +123,10 @@ class App extends Component {
           Grid width:
           <span
             className={` grid-width ${
-              this.state.gridWidth !== this.state.maxWidth ? 'red' : ''
+              this.getGridWidth() !== this.state.maxWidth ? 'red' : ''
             }`}
           >
-            {this.state.gridWidth}
+            {this.getGridWidth()}
           </span>
         </p>
       </div>
