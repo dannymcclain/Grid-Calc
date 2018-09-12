@@ -127,6 +127,7 @@ class App extends Component {
             {this.getGridWidth()}
           </span>
         </p>
+
         <div className="grid" style={{ width: this.getGridWidth() }}>
           {this.renderGrid()}
         </div>
