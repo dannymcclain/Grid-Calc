@@ -69,20 +69,15 @@ class App extends Component {
         <h1>Grid Calc</h1>
         <div className="grid-values">
           <div className="grid-input px-suffix">
-            <label for="max-grid">
-              Width (px)
-              <div className="input-container">
-                <input
-                  type="number"
-                  className="max-width"
-                  id="max-grid"
-                  value={this.state.maxWidth}
-                  onChange={this.setMaxWidth}
-                  min={1}
-                />
-                <span>px</span>
-              </div>
-            </label>
+            <label for="max-grid">Width (px)</label>
+            <input
+              type="number"
+              className="max-width"
+              id="max-grid"
+              value={this.state.maxWidth}
+              onChange={this.setMaxWidth}
+              min={1}
+            />
           </div>
 
           <div className="grid-input px-suffix">
