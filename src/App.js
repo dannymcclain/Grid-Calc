@@ -58,6 +58,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <h1>Grid Calc</h1>
         <div className="grid-values">
           <div className="grid-input">
             <label>Max Width (px)</label>
