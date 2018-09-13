@@ -104,8 +104,7 @@ class App extends Component {
         <div className="grid-values">
           <div className="grid-calculated">
             <p className="column-width-value">
-              Column width:
-              {this.getColumnWidth()}
+              Column width: {this.getColumnWidth()}
               px
             </p>
           </div>
