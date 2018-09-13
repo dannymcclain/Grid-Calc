@@ -37,18 +37,10 @@ class App extends Component {
       const count = index + 1;
       return (
         <React.Fragment key={count}>
-          <div
-            className="column"
-            style={{ width: columnWidth }}
-            key={'Column ' + count}
-          />
-          {!isLastItem && (
-            <div
-              className="gutter"
-              style={{ width: this.state.gutter }}
-              key={'Gutter ' + count}
-            />
-          )}
+          <div className="column" key={'Column ' + count}>
+            {columnWidth}
+          </div>
+          {!isLastItem && <div className="gutter" key={'Gutter ' + count} />}
         </React.Fragment>
       );
     });

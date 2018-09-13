@@ -122,11 +122,19 @@ label {
 .column {
   height: 90px;
   background: #2a2f42;
+  color: #4d5266;
   border-radius: 3px;
+  flex: 1;
+  display: flex;
+  flex: row nowrap;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
 }
 
 .gutter {
   max-width: 20px;
+  flex: 1;
 }
 
 .not-exact {
@@ -136,6 +144,16 @@ label {
 }
 
 @media (max-width: 540px) {
+  body {
+    font-size: 16px;
+  }
+  .container {
+    padding: 10px 20px 20px 20px;
+  }
+  input {
+    height: 48px;
+    font-size: 16px;
+  }
   .grid-values {
     display: flex;
     flex-direction: column;
@@ -148,5 +166,8 @@ label {
 
   .grid-calculated {
     margin: 0 0 20px 0;
+  }
+  .column {
+    font-size: 12px;
   }
 }
