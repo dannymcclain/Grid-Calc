@@ -8,6 +8,14 @@ body {
     monospace;
   font-size: 13px;
   font-weight: 400;
+  background: #212335;
+  color: #828799;
+}
+
+.container {
+  padding: 60px 0 0 60px;
+  width: 90%;
+  max-width: 420px;
 }
 
 input {
@@ -27,25 +35,51 @@ input {
   text-align: center;
 }
 
+input:focus {
+  background: #34394d;
+  color: #00ffaa;
+}
+
 input[type='number']::-webkit-inner-spin-button,
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.container {
-  padding: 40px;
+.grid-values {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 .grid-input {
-  margin-bottom: 20px;
+  margin: 0 30px 30px 0;
+}
+.grid-input:last-child {
+  margin: 0 0 30px 0;
 }
 
 label {
-  font-weight: bold;
-  font-size: 12px;
-  margin-bottom: 6px;
+  font-weight: 400;
+  margin-bottom: 10px;
   display: block;
+}
+
+.grid-calculated {
+  border: 2px solid #2a2f42;
+  border-radius: 5px;
+  height: 60px;
+  margin: 0 30px 30px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 50%;
+}
+
+.grid-calculated:last-child {
+  margin: 0 0 30px 0;
 }
 
 .grid {
@@ -55,8 +89,9 @@ label {
   justify-content: flex-start;
 }
 .column {
-  height: 40px;
-  background: #ccc;
+  height: 60px;
+  background: #2a2f42;
+  border-radius: 3px;
 }
 
 .gutter {

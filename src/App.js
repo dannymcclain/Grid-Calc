@@ -7,21 +7,17 @@ class App extends Component {
     this.state = {
       maxWidth: 1280,
       gutter: 40,
-      columns: 12,
-      margin: 0
+      columns: 12
     };
 
     this.setMaxWidth = this.setMaxWidth.bind(this);
     this.setGutter = this.setGutter.bind(this);
     this.setColumns = this.setColumns.bind(this);
-    this.setMargin = this.setMargin.bind(this);
   }
 
   getColumnWidth = () => {
     return Math.floor(
-      (this.state.maxWidth -
-        ((this.state.columns - 1) * this.state.gutter +
-          2 * this.state.margin)) /
+      (this.state.maxWidth - (this.state.columns - 1) * this.state.gutter) /
         this.state.columns
     );
   };
@@ -30,8 +26,7 @@ class App extends Component {
     const colWidth = this.getColumnWidth();
     return (
       colWidth * this.state.columns +
-      (this.state.columns - 1) * this.state.gutter +
-      2 * this.state.margin
+      (this.state.columns - 1) * this.state.gutter
     );
   };
 
@@ -51,78 +46,69 @@ class App extends Component {
     });
   };
   setMaxWidth(event) {
-    this.setState({ maxWidth: parseInt(event.target.value, 10) });
+    this.setState({ maxWidth: parseInt(event.target.value, 10) || 0 });
   }
   setGutter(event) {
-    this.setState({ gutter: parseInt(event.target.value, 10) });
+    this.setState({ gutter: parseInt(event.target.value, 10) || 0 });
   }
   setColumns(event) {
-    this.setState({ columns: parseInt(event.target.value, 10) });
-  }
-  setMargin(event) {
-    this.setState({ margin: parseInt(event.target.value, 10) });
+    this.setState({ columns: parseInt(event.target.value, 10) || 1 });
   }
 
   render() {
     return (
       <div className="container">
-        <div className="grid-input">
-          <label>Max Grid Width</label>
-          <input
-            type="number"
-            className="max-width"
-            value={this.state.maxWidth}
-            onChange={this.setMaxWidth}
-            min={1}
-          />
-        </div>
+        <div className="grid-values">
+          <div className="grid-input">
+            <label>Max Grid Width</label>
+            <input
+              type="number"
+              className="max-width"
+              value={this.state.maxWidth}
+              onChange={this.setMaxWidth}
+              min={1}
+            />
+          </div>
 
-        <div className="grid-input">
-          <label>Gutter</label>
-          <input
-            type="number"
-            className="gutter-input"
-            value={this.state.gutter}
-            onChange={this.setGutter}
-            min={0}
-          />
-        </div>
+          <div className="grid-input">
+            <label>Gutter</label>
+            <input
+              type="number"
+              className="gutter-input"
+              value={this.state.gutter}
+              onChange={this.setGutter}
+              min={0}
+            />
+          </div>
 
-        <div className="grid-input">
-          <label>Number of Columns</label>
-          <input
-            type="number"
-            className="columns"
-            value={this.state.columns}
-            onChange={this.setColumns}
-            min={1}
-          />
+          <div className="grid-input">
+            <label>Columns</label>
+            <input
+              type="number"
+              className="columns"
+              value={this.state.columns}
+              onChange={this.setColumns}
+              min={1}
+            />
+          </div>
         </div>
-
-        <div className="grid-input">
-          <label>Outside Margin</label>
-          <input
-            type="number"
-            className="margin"
-            value={this.state.margin}
-            onChange={this.setMargin}
-            min={0}
-          />
+        <div className="grid-values">
+          <div className="grid-calculated">
+            <p>
+              Column width:
+              {this.getColumnWidth()}
+            </p>
+          </div>
+          <div className="grid-calculated">
+            <p
+              className={` grid-width-value ${
+                this.getGridWidth() !== this.state.maxWidth ? 'not-exact' : ''
+              }`}
+            >
+              Grid width: {this.getGridWidth()}
+            </p>
+          </div>
         </div>
-        <p>
-          Column width:{' '}
-          <span className="column-width">{this.getColumnWidth()}</span>
-        </p>
-        <p>
-          Grid width:
-          <span
-            className={` grid-width ${
-              this.getGridWidth() !== this.state.maxWidth ? 'not-exact' : ''
-            }`}
-          >
-            {this.getGridWidth()}
-          </span>
-        </p>
 
         <div className="grid">{this.renderGrid()}</div>
       </div>
