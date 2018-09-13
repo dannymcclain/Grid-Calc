@@ -60,7 +60,7 @@ class App extends Component {
       <div className="container">
         <div className="grid-values">
           <div className="grid-input">
-            <label>Max Grid Width</label>
+            <label>Max Width (px)</label>
             <input
               type="number"
               className="max-width"
@@ -71,7 +71,7 @@ class App extends Component {
           </div>
 
           <div className="grid-input">
-            <label>Gutter</label>
+            <label>Gutter (px)</label>
             <input
               type="number"
               className="gutter-input"
@@ -94,9 +94,10 @@ class App extends Component {
         </div>
         <div className="grid-values">
           <div className="grid-calculated">
-            <p>
+            <p className="column-width-value">
               Column width:
               {this.getColumnWidth()}
+              px
             </p>
           </div>
           <div className="grid-calculated">
@@ -106,6 +107,7 @@ class App extends Component {
               }`}
             >
               Grid width: {this.getGridWidth()}
+              px
             </p>
           </div>
         </div>
