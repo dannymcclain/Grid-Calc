@@ -53,6 +53,10 @@ input {
   transition: background 200ms ease, color 200ms ease;
 }
 
+input:hover {
+  background: #2f3447;
+}
+
 input:focus {
   background: #34394d;
   color: #00ffaa;
