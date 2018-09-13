@@ -42,13 +42,9 @@ class App extends Component {
       const columnWidth = this.getColumnWidth();
       return (
         <React.Fragment>
-          <div className="column" style={{ width: columnWidth }}>
-            <p>{columnWidth}</p>
-          </div>
+          <div className="column" style={{ width: columnWidth }} />
           {!isLastItem && (
-            <div className="gutter" style={{ width: this.state.gutter }}>
-              <p>{this.state.gutter}</p>
-            </div>
+            <div className="gutter" style={{ width: this.state.gutter }} />
           )}
         </React.Fragment>
       );
@@ -77,7 +73,7 @@ class App extends Component {
             className="max-width"
             value={this.state.maxWidth}
             onChange={this.setMaxWidth}
-            min={0}
+            min={1}
           />
         </div>
 
@@ -99,7 +95,7 @@ class App extends Component {
             className="columns"
             value={this.state.columns}
             onChange={this.setColumns}
-            min={0}
+            min={1}
           />
         </div>
 
@@ -128,9 +124,7 @@ class App extends Component {
           </span>
         </p>
 
-        <div className="grid" style={{ width: this.getGridWidth() }}>
-          {this.renderGrid()}
-        </div>
+        <div className="grid">{this.renderGrid()}</div>
       </div>
     );
   }

@@ -1,3 +1,38 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Roboto Mono', Consolas, 'Liberation Mono', Menlo, Courier,
+    monospace;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+input {
+  font-family: 'Roboto Mono', Consolas, 'Liberation Mono', Menlo, Courier,
+    monospace;
+  font-size: 13px;
+  font-weight: 400;
+  color: #fff;
+  outline: none;
+  border: none;
+  background: #2a2f42;
+  border-radius: 5px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .container {
   padding: 40px;
 }
@@ -13,21 +48,21 @@ label {
   display: block;
 }
 
-.column,
-.gutter {
-  height: 40px;
-  float: left;
-  text-align: center;
-  font-size: 12px;
+.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
 }
-
 .column {
+  height: 40px;
   background: #ccc;
 }
 
 .gutter {
-  background: #f7f7f7;
+  max-width: 20px;
 }
+
 .not-exact {
   color: red;
 }
