@@ -32,14 +32,22 @@ class App extends Component {
 
   renderGrid = () => {
     return [...Array(this.state.columns)].map((_, index, current) => {
-      console.log(index, current.length);
       const isLastItem = current.length - 1 <= index;
       const columnWidth = this.getColumnWidth();
+      const count = index + 1;
       return (
-        <React.Fragment>
-          <div className="column" style={{ width: columnWidth }} />
+        <React.Fragment key={count}>
+          <div
+            className="column"
+            style={{ width: columnWidth }}
+            key={'Column ' + count}
+          />
           {!isLastItem && (
-            <div className="gutter" style={{ width: this.state.gutter }} />
+            <div
+              className="gutter"
+              style={{ width: this.state.gutter }}
+              key={'Gutter ' + count}
+            />
           )}
         </React.Fragment>
       );

@@ -14,7 +14,6 @@ body {
 
 .container {
   margin: 60px;
-  width: 90%;
   max-width: 600px;
 }
 
@@ -49,6 +48,7 @@ input {
   justify-content: center;
   align-items: center;
   text-align: center;
+  transition: background 200ms ease, color 200ms ease;
 }
 
 input:focus {
@@ -127,4 +127,20 @@ label {
   font-weight: 400;
   font-style: italic;
   color: #ff5967;
+}
+
+@media (max-width: 540px) {
+  .grid-values {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-bottom: 30px;
+  }
+  .grid-input {
+    margin: 0 0 20px 0;
+  }
+
+  .grid-calculated {
+    margin: 0 0 20px 0;
+  }
 }
