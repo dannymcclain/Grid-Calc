@@ -13,8 +13,9 @@ body {
 }
 
 .container {
-  margin: 60px;
-  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 60px 60px 60px;
+  max-width: 900px;
 }
 
 h1 {

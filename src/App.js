@@ -69,7 +69,7 @@ class App extends Component {
         <h1>Grid Calc</h1>
         <div className="grid-values">
           <div className="grid-input px-suffix">
-            <label for="max-grid">Width (px)</label>
+            <label>Width (px)</label>
             <input
               type="number"
               className="max-width"
