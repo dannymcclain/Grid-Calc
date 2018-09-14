@@ -39,6 +39,7 @@ class App extends Component {
         <React.Fragment key={count}>
           <div className="column" key={'Column ' + count}>
             {columnWidth}
+            px
           </div>
           {!isLastItem && <div className="gutter" key={'Gutter ' + count} />}
         </React.Fragment>
