@@ -61,7 +61,7 @@ class App extends Component {
       <div className="container">
         <h1>Grid Calc</h1>
         <div className="grid-values">
-          <div className="grid-input px-suffix">
+          <div className="grid-input">
             <label>Width (px)</label>
             <input
               type="number"
@@ -73,7 +73,7 @@ class App extends Component {
             />
           </div>
 
-          <div className="grid-input px-suffix">
+          <div className="grid-input">
             <label>Gutter (px)</label>
             <input
               type="number"
@@ -95,7 +95,7 @@ class App extends Component {
             />
           </div>
         </div>
-        <div className="grid-values">
+        <div className="calculated-values">
           <div className="grid-calculated">
             <p className="column-width-value">
               Column width: {this.getColumnWidth()}

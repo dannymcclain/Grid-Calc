@@ -68,7 +68,8 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.grid-values {
+.grid-values,
+.calculated-values {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -147,6 +148,9 @@ label {
   body {
     font-size: 16px;
   }
+  label {
+    font-size: 11px;
+  }
   .container {
     padding: 10px 20px 20px 20px;
   }
@@ -154,20 +158,20 @@ label {
     height: 48px;
     font-size: 16px;
   }
-  .grid-values {
+  .calculated-values {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     margin-bottom: 30px;
   }
   .grid-input {
-    margin: 0 0 20px 0;
+    margin: 0 20px 20px 0;
   }
 
   .grid-calculated {
     margin: 0 0 20px 0;
   }
-  .column {
-    font-size: 12px;
+  .grid {
+    display: none;
   }
 }
